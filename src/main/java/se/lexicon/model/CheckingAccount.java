@@ -12,6 +12,7 @@ public class CheckingAccount {
   }
 
   public void deposit(double amount){
+    if (amount <= 0) throw new IllegalArgumentException("amount is not valid!");
     balance = balance + amount;
     System.out.println("Operation is Done!");
   }
