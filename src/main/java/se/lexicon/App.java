@@ -2,6 +2,7 @@ package se.lexicon;
 
 
 import se.lexicon.exception.InsufficientFoundsException;
+import se.lexicon.exception.MyArgumentException;
 import se.lexicon.model.CheckingAccount;
 
 public class App {
@@ -18,14 +19,13 @@ public class App {
 
       //account.withdraw(400.00); // throws InsufficientFoundsException
 
-      account.deposit(-100); // throws IllegalArgumentException
+      account.deposit(-100); // throws MyArgumentException
 
     } catch (InsufficientFoundsException e) {
       System.out.println("InsufficientFoundsException: " + e.getMessage());
-    } catch (IllegalArgumentException e) {
-      System.out.println("IllegalArgumentException: " + e.getMessage());
-    } catch (Exception e) {
-      System.out.println("Global Exception: " + e);
+    } catch (MyArgumentException e) {
+      System.out.println("ArgumentException: " + e.getMessage());
+      System.out.println(e.details());
     }
 
 
